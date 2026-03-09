@@ -2,13 +2,13 @@ import json
 from confluent_kafka import Consumer, Producer
 
 c = Consumer({
-    'bootstrap.servers': 'localhost:9092',
+    'bootstrap.servers': 'localhost:9092,localhost:9093,localhost:9094',
     'group.id': 'oms-group',
     'auto.offset.reset': 'earliest'
 })
 c.subscribe(['oms-order-events'])
 
-dlq_p = Producer({'bootstrap.servers': 'localhost:9092'})
+dlq_p = Producer({'bootstrap.servers': 'localhost:9092,localhost:9093,localhost:9094'})
 print("컨슈머 실행 중... (종료하려면 Ctrl+C)")
 
 try:

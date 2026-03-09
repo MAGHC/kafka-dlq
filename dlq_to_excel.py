@@ -5,7 +5,7 @@ from confluent_kafka import Consumer
 
 # DLQ 토픽만 전문적으로 읽어들이는 Consumer 설정
 c = Consumer({
-    'bootstrap.servers': 'localhost:9092',
+    'bootstrap.servers': 'localhost:9092,localhost:9093,localhost:9094',
     'group.id': 'dlq-backup-group',
     'auto.offset.reset': 'earliest'
 })
